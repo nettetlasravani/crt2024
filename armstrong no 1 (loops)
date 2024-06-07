@@ -1,0 +1,139 @@
+Write a program to check whether the given number is an Armstrong number or not. Armstrong Number:abcd... = pow(a,n) + pow(b,n) + pow(c,n) + pow(d,n) + .... where n represents the number of digits
+
+Input Format
+
+Read a no
+
+Constraints
+
+1<=n<=10^7
+
+Output Format
+
+Print "Yes" if armstrong no else print "No"
+
+Sample Input 0
+
+153
+Sample Output 0
+
+Yes
+Sample Input 1
+
+120
+Sample Output 1
+
+No
+Sample Input 2
+
+1253
+Sample Output 2
+
+No
+Sample Input 3
+
+1634
+Sample Output 3
+
+Yes
+Submissions: 63
+Max Score: 0
+Difficulty: Medium
+Rate This Challenge:
+
+    
+More
+ 
+1
+#include <stdio.h>
+2
+#include <string.h>
+3
+#include <math.h>
+4
+#include <stdlib.h>
+5
+// Function to count the number of digits in a number
+6
+int count_digits(int num) {
+7
+    int count = 0;
+8
+    while (num != 0) {
+9
+        num /= 10;
+10
+        count++;
+11
+    }
+12
+    return count;
+13
+}
+14
+​
+15
+// Function to check if a number is an Armstrong number
+16
+int is_armstrong(int num) {
+17
+    int original_num = num;
+18
+    int n = count_digits(num);
+19
+    int sum = 0;
+20
+    while (num != 0) {
+21
+        int digit = num % 10;
+22
+        sum += pow(digit, n);
+23
+        num /= 10;
+24
+    }
+25
+    return (sum == original_num);
+26
+}
+27
+​
+28
+int main() {
+29
+    int num;
+30
+​
+31
+    // Read the input number
+32
+    scanf("%d", &num);
+33
+​
+34
+    // Check if the number is an Armstrong number and print the result
+35
+    if (is_armstrong(num)) {
+36
+        printf("Yes\n");
+37
+    } else {
+38
+        printf("No\n");
+39
+    }
+40
+​
+41
+    return 0;
+42
+}
+Input (stdin)
+
+153
+Your Output (stdout)
+
+Yes
+Expected Output
+
+Yes
